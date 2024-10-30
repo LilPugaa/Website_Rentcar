@@ -36,12 +36,12 @@
                     <span>Charts</span>
                 </a>
             </li>
-            <li class="active--settings">
+            {{-- <li class="active--settings">
                 <a href="{{ url('settings') }}">
                     <i class="fas fa-cog"></i>
                     <span>Settings</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="logout">
                 <a href="#">
                     <i class="fas fa-sign-out-alt"></i>
@@ -133,6 +133,7 @@
             </div>
         </div>
     </div>
+ 
 
     {{-- ApexCharts --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.54.1/apexcharts.min.js"></script>

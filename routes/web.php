@@ -18,6 +18,6 @@ Route::get('/charts', function () {
     return view('charts');
 }) -> name('charts');
 
-Route::get('/settings', function () {
-    return view('settings');
-}) -> name('settings');
+// Route::get('/settings', function () {
+//     return view('settings');
+// }) -> name('settings');

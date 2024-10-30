@@ -20,6 +20,7 @@ var barChartOptions = {
         '#2e7d32',
         '#ff6d00',
         '#583cb3',
+        '#021526',
     ],
     plotOptions: {
         bar: {
@@ -69,7 +70,7 @@ var barChartOptions = {
         categories: ['X5', 'Avanza', 'CR-V', 'Sigra', 'HR-V'],
         title: {
             style: {
-                color: 'f5f7ff',
+                color: '#021526',
             },
         },
         axisBorder: {
@@ -90,7 +91,7 @@ var barChartOptions = {
         title: {
             text: 'Count',
             style: {
-                color: '#f5f7ff',
+                color: '#021526',
             },
         },
         axisBorder: {
@@ -167,7 +168,7 @@ var areaChartOptions = {
     },
     legend: {
         labels: {
-            colors: '#f5f7ff'
+            colors: '#021526'
         },
         show: true,
         position: 'top',
@@ -192,7 +193,7 @@ var areaChartOptions = {
         labels: {
             offsetY: 5,
             style: {
-                colors: '#f5f7ff',
+                colors: '#021526',
             },
         },
     },
@@ -202,12 +203,12 @@ var areaChartOptions = {
             title: {
                 text: 'Purchase Orders',
                 style: {
-                    color: '#f5f7ff',
+                    color: '#021526',
                 },
             },
             labels: {
                 style: {
-                    colors: ['#f5f7ff'],
+                    colors: ['#021526'],
                 },
             },
         },
@@ -216,7 +217,12 @@ var areaChartOptions = {
             title: {
                 text: 'Sales Orders',
                 style: {
-                    color: ['#f5f7ff'],
+                    color: '#021526',
+                },
+            },
+            labels: {
+                style: {
+                    colors: ['#021526'],
                 },
             },
         },
