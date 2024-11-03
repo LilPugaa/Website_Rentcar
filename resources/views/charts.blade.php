@@ -1,6 +1,8 @@
-@extends('admin2')
+@extends('navigation')
 
 @section('ganti')
+
+<link rel="stylesheet" href="{{ asset('css/charts.css') }}">
 
         <div class="table--wrapper">
             <h3 class="main--title">Charts Data</h3>
@@ -18,7 +20,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     {{-- ApexCharts --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.54.1/apexcharts.min.js"></script>

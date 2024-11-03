@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard Admin | Rentcar</title>
+    <title>All Stars Rentcar | Admin</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navigation.css') }}">
 </head>
 <body>
     <div class="sidebar">
         <div class="logo"></div>
         <ul class="menu">
-            {{-- <li class="logo-rentcar">
-                <a href="{{ url('admin') }}">
-                    <img src="{{ asset('images/logo-rentcar.jpg') }}" alt="RentCar">
-                </a>
-            </li> --}}
             <li class="active--dashboard">
-                <a href="{{ url('admin') }}">
+                <a href="{{ url('dashboard') }}">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -48,8 +43,8 @@
     <div class="main--content">
         <div class="header--wrapper">
             <div class="header--title">
-                <span>Rent Car</span>
-                <h2>Dashboards</h2>
+                <h2>All Stars Rentcar</h2>
+                <span>Smooth Rides, Lasting Memories</span>
             </div>
             <div class="user--info">
                 <div class="search--box">
@@ -57,13 +52,11 @@
                     <input type="text" placeholder="Search">
                 </div>
                 <h6>Gung Yuga</h6>
-                <img src="{{ asset('images/profil.jpg') }}" alt="bg">
+                <img src="{{ asset('img/profil.jpg') }}" alt="bg">
             </div>
         </div>
 
-        <div class="card--container">
-            @yield('ganti')
-        </div>
+        @yield('ganti')
     </div>
 
     {{-- ApexCharts --}}
