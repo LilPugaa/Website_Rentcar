@@ -6,9 +6,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
-}) -> name('admin');
+// Route::get('/admin', function () {
+//     return view('admin');
+// }) -> name('admin');
 
 Route::get('/tables', function () {
     return view('tables');
@@ -18,6 +18,8 @@ Route::get('/charts', function () {
     return view('charts');
 }) -> name('charts');
 
-// Route::get('/settings', function () {
-//     return view('settings');
-// }) -> name('settings');
+Route::get('/login', function () {
+    return view('login');
+}) -> name('login');
+
+Route::resource('/admin','App\Http\Controllers\controllerDashboard');

@@ -20,23 +20,17 @@
                 </a>
             </li>
             <li class="active--tables">
-                <a href="{{ url('tables') }}">
+                <a href="{{ route('tables') }}">
                     <i class="fas fa-table"></i>
                     <span>Tables</span>
                 </a>
             </li>
             <li class="active--charts">
-                <a href="{{ url('charts') }}">
+                <a href="{{ route('charts') }}">
                     <i class="fas fa-chart-bar"></i>
                     <span>Charts</span>
                 </a>
             </li>
-            {{-- <li class="active--settings">
-                <a href="{{ url('settings') }}">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-            </li> --}}
             <li class="logout">
                 <a href="#">
                     <i class="fas fa-sign-out-alt"></i>
