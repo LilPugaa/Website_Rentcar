@@ -1,25 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ControllerDashboard;
 
+// Route untuk dashboard
 Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/tables', function () {
-    return view('tables');
-}) -> name('tables');
+// Gunakan resource route untuk controllerDashboard
+Route::resource('/rentals', ControllerDashboard::class);
 
+// Route untuk charts dan lainnya
 Route::get('/charts', function () {
     return view('charts');
-}) -> name('charts');
+})->name('charts');
 
 Route::get('/login', function () {
     return view('login');
-}) -> name('login');
+})->name('login');
 
 Route::get('/user', function () {
     return view('user');
-}) -> name('user');
+})->name('user');
 
-Route::resource('/dashboard','App\Http\Controllers\controllerDashboard');
+Route::get('/tables', [ControllerDashboard::class, 'index'])->name('rentals.tables');

@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="active--tables">
-                <a href="{{ route('tables') }}">
+                <a href="{{ route('rentals.tables') }}">
                     <i class="fas fa-table"></i>
                     <span>Tables</span>
                 </a>
