@@ -14,7 +14,7 @@
         <div class="logo"></div>
         <ul class="menu">
             <li class="active--dashboard">
-                <a href="{{ url('dashboard') }}">
+                <a href="{{ route('dashboard') }}">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li class="logout">
-                <a href="#">
+                <a href="{{route('login')}}">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
                 </a>

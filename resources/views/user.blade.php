@@ -34,7 +34,7 @@
       <!-- User profile section to the right of Get Started -->
       <div class="user-profile">
         <img src="{{ asset('img/assets/user-logo.png') }}" alt="User Logo" class="user-logo" />
-        <span class="username">Sudana Wijaya</span>
+        <span class="username">{{ Auth::user()->name }}</span>
       </div>
     </div>
   </nav>

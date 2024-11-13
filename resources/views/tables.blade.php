@@ -57,7 +57,7 @@
                     <td>{{ $rental->status }}</td>
                     <td class="td--icon">
                         <!-- Tombol Edit -->
-                        <a href="{{ route('rentals.edit', $rental->id) }}" class="edit--button" title="Edit Rental">
+                        <a href="{{ route('rentals.edit', $rental->id_rentals) }}" class="edit--button" title="Edit Rental">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                 <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
@@ -66,7 +66,7 @@
                             </svg>
                         </a>
                         <!-- Form untuk menghapus data -->
-                        <form action="{{ route('rentals.destroy', $rental->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this rental?')">
+                        <form action="{{ route('rentals.destroy', $rental->id_rentals) }}" method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this rental?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="delete--button" title="Delete Rental">

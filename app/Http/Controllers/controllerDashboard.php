@@ -39,7 +39,7 @@ class ControllerDashboard extends Controller
             'plat' => 'required|string|max:50',
             'tanggal_disewa' => 'required|date',
             'tanggal_kembali' => 'required|date',
-            'nama_penyewa' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'harga' => 'required|numeric',
             'status' => 'required|string',
         ]);
@@ -54,10 +54,10 @@ class ControllerDashboard extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id_rentals)
     {
         // Ambil data rental berdasarkan ID
-        $rental = Rental::find($id);
+        $rental = Rental::find($id_rentals);
 
         // Jika data tidak ditemukan, arahkan dengan pesan error
         if (!$rental) {
@@ -71,10 +71,10 @@ class ControllerDashboard extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id_rentals)
     {
         // Ambil data rental berdasarkan ID untuk diedit
-        $rental = Rental::find($id);
+        $rental = Rental::find($id_rentals);
 
         // Jika rental tidak ditemukan, tampilkan pesan error
         if (!$rental) {
@@ -88,10 +88,10 @@ class ControllerDashboard extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_rentals)
     {
         // Mencari rental berdasarkan ID
-        $rental = Rental::find($id);
+        $rental = Rental::find($id_rentals);
 
         // Jika rental tidak ditemukan
         if (!$rental) {
@@ -119,10 +119,10 @@ class ControllerDashboard extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id_rentals)
     {
         // Cari dan hapus data rental berdasarkan ID
-        $rental = Rental::find($id);
+        $rental = Rental::find($id_rentals);
 
         // Jika rental tidak ditemukan, tampilkan pesan error
         if (!$rental) {

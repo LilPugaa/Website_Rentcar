@@ -9,7 +9,7 @@
             <h3>Edit Rental</h3>
         </div>
 
-        <form action="{{ route('rentals.update', $rental->id) }}" method="POST">
+        <form action="{{ route('rentals.update', $rental->id_rentals) }}" method="POST">
             @csrf
             @method('PUT') <!-- Menggunakan metode PUT untuk mengupdate data -->
             
