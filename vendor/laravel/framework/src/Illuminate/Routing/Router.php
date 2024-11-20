@@ -244,7 +244,9 @@ class Router implements BindingRegistrar, RegistrarContract
         $placeholder = 'fallbackPlaceholder';
 
         return $this->addRoute(
-            'GET', "{{$placeholder}}", $action
+            'GET',
+            "{{$placeholder}}",
+            $action
         )->where($placeholder, '.*')->fallback();
     }
 
@@ -259,8 +261,8 @@ class Router implements BindingRegistrar, RegistrarContract
     public function redirect($uri, $destination, $status = 302)
     {
         return $this->any($uri, '\Illuminate\Routing\RedirectController')
-                ->defaults('destination', $destination)
-                ->defaults('status', $status);
+            ->defaults('destination', $destination)
+            ->defaults('status', $status);
     }
 
     /**
@@ -288,12 +290,12 @@ class Router implements BindingRegistrar, RegistrarContract
     public function view($uri, $view, $data = [], $status = 200, array $headers = [])
     {
         return $this->match(['GET', 'HEAD'], $uri, '\Illuminate\Routing\ViewController')
-                ->setDefaults([
-                    'view' => $view,
-                    'data' => $data,
-                    'status' => is_array($status) ? 200 : $status,
-                    'headers' => is_array($status) ? $status : $headers,
-                ]);
+            ->setDefaults([
+                'view' => $view,
+                'data' => $data,
+                'status' => is_array($status) ? 200 : $status,
+                'headers' => is_array($status) ? $status : $headers,
+            ]);
     }
 
     /**
@@ -340,7 +342,10 @@ class Router implements BindingRegistrar, RegistrarContract
         }
 
         return new PendingResourceRegistration(
-            $registrar, $name, $controller, $options
+            $registrar,
+            $name,
+            $controller,
+            $options
         );
     }
 
@@ -410,7 +415,10 @@ class Router implements BindingRegistrar, RegistrarContract
         }
 
         return new PendingSingletonResourceRegistration(
-            $registrar, $name, $controller, $options
+            $registrar,
+            $name,
+            $controller,
+            $options
         );
     }
 
@@ -561,7 +569,9 @@ class Router implements BindingRegistrar, RegistrarContract
         }
 
         $route = $this->newRoute(
-            $methods, $this->prefix($uri), $action
+            $methods,
+            $this->prefix($uri),
+            $action
         );
 
         // If we have groups that need to be merged, we will merge them now after this
@@ -630,7 +640,7 @@ class Router implements BindingRegistrar, RegistrarContract
         $group = end($this->groupStack);
 
         return isset($group['namespace']) && ! str_starts_with($class, '\\') && ! str_starts_with($class, $group['namespace'])
-                ? $group['namespace'].'\\'.$class : $class;
+            ? $group['namespace'] . '\\' . $class : $class;
     }
 
     /**
@@ -655,7 +665,7 @@ class Router implements BindingRegistrar, RegistrarContract
             return $class;
         }
 
-        return $group['controller'].'@'.$class;
+        return $group['controller'] . '@' . $class;
     }
 
     /**
@@ -669,8 +679,8 @@ class Router implements BindingRegistrar, RegistrarContract
     public function newRoute($methods, $uri, $action)
     {
         return (new Route($methods, $uri, $action))
-                    ->setRouter($this)
-                    ->setContainer($this->container);
+            ->setRouter($this)
+            ->setContainer($this->container);
     }
 
     /**
@@ -681,7 +691,7 @@ class Router implements BindingRegistrar, RegistrarContract
      */
     protected function prefix($uri)
     {
-        return trim(trim($this->getLastGroupPrefix(), '/').'/'.trim($uri, '/'), '/') ?: '/';
+        return trim(trim($this->getLastGroupPrefix(), '/') . '/' . trim($uri, '/'), '/') ?: '/';
     }
 
     /**
@@ -693,7 +703,8 @@ class Router implements BindingRegistrar, RegistrarContract
     protected function addWhereClausesToRoute($route)
     {
         $route->where(array_merge(
-            $this->patterns, $route->getAction()['where'] ?? []
+            $this->patterns,
+            $route->getAction()['where'] ?? []
         ));
 
         return $route;
@@ -778,11 +789,12 @@ class Router implements BindingRegistrar, RegistrarContract
      */
     protected function runRoute(Request $request, Route $route)
     {
-        $request->setRouteResolver(fn () => $route);
+        $request->setRouteResolver(fn() => $route);
 
         $this->events->dispatch(new RouteMatched($route, $request));
 
-        return $this->prepareResponse($request,
+        return $this->prepareResponse(
+            $request,
             $this->runRouteWithinStack($route, $request)
         );
     }
@@ -797,16 +809,17 @@ class Router implements BindingRegistrar, RegistrarContract
     protected function runRouteWithinStack(Route $route, Request $request)
     {
         $shouldSkipMiddleware = $this->container->bound('middleware.disable') &&
-                                $this->container->make('middleware.disable') === true;
+            $this->container->make('middleware.disable') === true;
 
         $middleware = $shouldSkipMiddleware ? [] : $this->gatherRouteMiddleware($route);
 
         return (new Pipeline($this->container))
-                        ->send($request)
-                        ->through($middleware)
-                        ->then(fn ($request) => $this->prepareResponse(
-                            $request, $route->run()
-                        ));
+            ->send($request)
+            ->through($middleware)
+            ->then(fn($request) => $this->prepareResponse(
+                $request,
+                $route->run()
+            ));
     }
 
     /**
@@ -855,7 +868,7 @@ class Router implements BindingRegistrar, RegistrarContract
             $reflection = new ReflectionClass($name);
 
             return collect($excluded)->contains(
-                fn ($exclude) => class_exists($exclude) && $reflection->isSubclassOf($exclude)
+                fn($exclude) => class_exists($exclude) && $reflection->isSubclassOf($exclude)
             );
         })->values();
 
@@ -908,13 +921,15 @@ class Router implements BindingRegistrar, RegistrarContract
             $response = new JsonResponse($response, 201);
         } elseif ($response instanceof Stringable) {
             $response = new Response($response->__toString(), 200, ['Content-Type' => 'text/html']);
-        } elseif (! $response instanceof SymfonyResponse &&
-                   ($response instanceof Arrayable ||
-                    $response instanceof Jsonable ||
-                    $response instanceof ArrayObject ||
-                    $response instanceof JsonSerializable ||
-                    $response instanceof stdClass ||
-                    is_array($response))) {
+        } elseif (
+            ! $response instanceof SymfonyResponse &&
+            ($response instanceof Arrayable ||
+                $response instanceof Jsonable ||
+                $response instanceof ArrayObject ||
+                $response instanceof JsonSerializable ||
+                $response instanceof stdClass ||
+                is_array($response))
+        ) {
             $response = new JsonResponse($response);
         } elseif (! $response instanceof SymfonyResponse) {
             $response = new Response($response, 200, ['Content-Type' => 'text/html']);
@@ -958,10 +973,13 @@ class Router implements BindingRegistrar, RegistrarContract
      */
     public function substituteImplicitBindings($route)
     {
-        $default = fn () => ImplicitRouteBinding::resolveForRoute($this->container, $route);
+        $default = fn() => ImplicitRouteBinding::resolveForRoute($this->container, $route);
 
         return call_user_func(
-            $this->implicitBindingCallback ?? $default, $this->container, $route, $default
+            $this->implicitBindingCallback ?? $default,
+            $this->container,
+            $route,
+            $default
         );
     }
 
@@ -1151,7 +1169,8 @@ class Router implements BindingRegistrar, RegistrarContract
     public function bind($key, $binder)
     {
         $this->binders[str_replace('-', '_', $key)] = RouteBinding::forCallback(
-            $this->container, $binder
+            $this->container,
+            $binder
         );
     }
 

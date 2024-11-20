@@ -12,6 +12,7 @@ class ControllerDashboard extends Controller
      */
     public function index()
     {
+        
         // Mengambil semua data dari model Rental
         $rentals = Rental::all();
 

@@ -68,6 +68,12 @@ body {
     transition: all 0.5s ease-in-out;
 }
 
+.menu li.active {
+    background: #e0e0e058;
+    color: var(--text-dark);
+}
+
+
 .menu li:hover, .active--dashboard {
     background: #e0e0e058;
 }

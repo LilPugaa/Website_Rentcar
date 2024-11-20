@@ -202,16 +202,3 @@ body {
     right: 0;
     transform: translateX(0);
 }
-/* Menyembunyikan form login dan register */
-.sign-in, .sign-up {
-    display: none;
-}
-
-/* Menampilkan form sesuai dengan kelas active */
-.container.active .sign-up {
-    display: block;  /* Tampilkan form register */
-}
-
-.container:not(.active) .sign-in {
-    display: block;  /* Tampilkan form login */
-}

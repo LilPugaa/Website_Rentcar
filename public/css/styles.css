@@ -70,6 +70,7 @@
   border-radius: 10px;
   transition: 0.3s;
   cursor: pointer;
+  width: 120px;
 }
 
 .btn:hover {
@@ -658,6 +659,13 @@ footer {
 .footer__links {
   display: grid;
   gap: 1rem;
+  color: #999;
+}
+
+.footer__links :hover{
+  display: grid;
+  gap: 1rem;
+  color: #ffffff;
 }
 
 .footer__links a {
@@ -1123,4 +1131,6 @@ footer {
   margin-left: .5rem;
   color: #15191d;
 }
+
+
 

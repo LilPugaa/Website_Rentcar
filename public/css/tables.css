@@ -98,3 +98,140 @@ tfoot td {
     padding: 0;
     margin: 0;
 }
+
+/* -- Form Wrapper -- */
+.form--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Align items to the top */
+    min-height: 0.5vh;  /* Full screen height */
+    background-color: #F4F6F9;
+    padding: 1rem;  /* Reduced padding for better fit */
+    overflow: hidden;  /* Prevent any scrolling */
+}
+
+/* -- Form Container -- */
+.form--container {
+    background-color: #FFFFFF;
+    padding: 1rem;  /* Reduced padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;  /* Max width for better layout */
+    box-sizing: border-box;
+    height: 80vh;  /* Ensure the form container height is 90% of the viewport */
+    overflow-y: auto;  /* Allows scrolling within the form */
+}
+
+/* -- Form Title -- */
+.form--title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin-bottom: 1rem;  /* Reduced margin */
+    text-align: center;
+}
+
+/* -- Form Group (Horizontal Layout) -- */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spread label and input */
+    margin-bottom: 0.8rem;  /* Reduced margin */
+}
+
+.form-group label {
+    font-size: 14px;  /* Smaller label font */
+    font-weight: 600;
+    color: #34495E;
+    flex-basis: 30%;
+    margin-right: 1rem;  /* Reduced margin */
+    text-align: right;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select {
+    padding: 0.7rem;  /* Slightly reduced padding */
+    font-size: 14px;  /* Smaller input font */
+    border-radius: 8px;
+    border: 1px solid #BDC3C7;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #F9FAFB;
+    flex-basis: 60%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #3498DB;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+/* -- Error Message -- */
+.error {
+    color: #E74C3C;
+    font-size: 12px;  /* Smaller error font */
+    margin-top: 0.3rem;
+    text-align: right;
+    flex-basis: 30%;
+    padding-right: 1rem;
+}
+
+/* -- Submit Button -- */
+.submit--button {
+    background-color: #3498DB;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 0.7rem;  /* Reduced padding */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: 200px;
+    margin: 1.5rem auto 0 auto;  /* Adjusted margin to ensure it fits within screen */
+    display: block;
+}
+
+.submit--button:hover {
+    background-color: #2980B9;
+    transform: scale(1.02);
+}
+
+/* -- Responsif -- */
+@media (max-width: 768px) {
+    .form--container {
+        padding: 1rem;
+        height: auto;  /* Allow form height to adjust on smaller screens */
+    }
+
+    .form--title {
+        font-size: 20px;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-group label {
+        margin-bottom: 0.5rem;
+        text-align: left;
+        flex-basis: 100%;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="date"],
+    .form-group select {
+        flex-basis: 100%;
+    }
+
+    .submit--button {
+        max-width: 100%;
+    }
+}
+

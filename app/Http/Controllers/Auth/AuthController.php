@@ -79,12 +79,12 @@ public function login(Request $request)
      */
     protected function authenticated(Request $request, $user)
     {
-        if ($user->role === 'admin') {
-            return redirect()->route('dashboard'); // Arahkan ke dashboard admin
-        }
-
-        return redirect()->route('user'); // Arahkan ke halaman pengguna biasa
+        // Mengarahkan pengguna berdasarkan role
+        return $user->hasRole('admin') 
+            ? redirect()->route('dashboard')  // Admin diarahkan ke dashboard
+            : redirect()->route('user');      // Pengguna biasa diarahkan ke halaman user
     }
+    
 
     /**
      * Logout user

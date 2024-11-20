@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,6 +21,18 @@ class User extends Authenticatable
         'name', 'email', 'password', 'role',
     ];
 
-}
+    // Method untuk mengecek role pengguna
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
 
+    // Method untuk mengecek permission
+    public function hasPermissionTo($permission)
+    {
+        // Misalnya Anda memiliki kolom `permissions` dalam tabel users yang menyimpan array permission
+        $permissions = explode(',', $this->permissions); // Kolom permissions berupa string yang dipisah dengan koma
+        return in_array($permission, $permissions);
+    }
+}
 

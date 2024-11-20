@@ -1,0 +1,68 @@
+/* Style form dan halaman */
+body {
+    font-family: "Syncopate", sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-weight: bold;
+}
+.form-container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+}
+.form-container h2 {
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+}
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.form-row label {
+    width: 150px;
+    font-weight: bold;
+    color: #555;
+}
+.form-row input, .form-row select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.submit-button button {
+    padding: 1rem 1.5rem;
+    border: none;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #000000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.submit-button button:hover {
+    background-color: #133E87;
+}
+.notification {
+    display: none;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    color: green;
+}

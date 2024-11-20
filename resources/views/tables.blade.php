@@ -52,7 +52,7 @@
                     <td>{{ $rental->plat }}</td>
                     <td>{{ $rental->tanggal_disewa }}</td>
                     <td>{{ $rental->tanggal_kembali }}</td>
-                    <td>{{ $rental->nama_penyewa }}</td>
+                    <td>{{ $rental->name }}</td>
                     <td>Rp {{ number_format($rental->harga, 0, ',', '.') }}</td>
                     <td>{{ $rental->status }}</td>
                     <td class="td--icon">
